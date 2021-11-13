@@ -1,0 +1,17 @@
+{
+  "name": "ciphering-tool",
+  "version": "1.0.0",
+  "description": "Ciphering CLI Tool.",
+  "main": "index.js",
+  "scripts": {
+    "ciphering": "node index.js",
+    "prettier": "npx prettier --write ."
+  },
+  "repository": "git@github.com:vzamko/Ciphering-CLI-Tool.git",
+  "author": "Valera Zamko <valery.zamko@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "8.2.0",
+    "prettier": "2.4.1"
+  }
+}
