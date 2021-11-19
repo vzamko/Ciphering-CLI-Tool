@@ -1,10 +1,10 @@
 module.exports.getConfig = (argv) => {
-  if (argv.indexOf("-c") >= 0) {
-    return this.getValue("-c");
-  }
-
   if (argv.indexOf("--config") >= 0) {
     return this.getValue("--config");
+  }
+
+  if (argv.indexOf("-c") >= 0) {
+    return this.getValue("-c");
   }
 };
 
