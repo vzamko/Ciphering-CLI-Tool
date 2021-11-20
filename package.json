@@ -4,6 +4,7 @@
   "description": "Ciphering CLI Tool.",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "ciphering": "node index.js",
     "prettier": "npx prettier --write ."
   },
@@ -12,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "8.2.0",
+    "jest": "^27.3.1",
     "prettier": "2.4.1"
   }
 }
