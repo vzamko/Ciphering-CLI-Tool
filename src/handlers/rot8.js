@@ -41,24 +41,33 @@ module.exports = class Rot8 extends stream.Transform {
   }
 
   _transform(chunk, encoding, callback) {
-    if (encoding !== "utf8") {
+    if (this.checkError(encoding)) {
       this.emit("error", new Error("Source must be UTF-8."));
       return callback();
     }
 
     if (this.decoding) {
-      const reverseMapping = {};
-
-      Object.keys(mapping).forEach((item) => {
-        let key = mapping[item];
-        reverseMapping[key] = item;
-      });
-
+      let reverseMapping = this.getReverseMapping();
       this.push(mappingHandler.run(chunk, reverseMapping));
       callback();
     } else {
       this.push(mappingHandler.run(chunk, mapping));
       callback();
     }
+  }
+
+  getReverseMapping = () => {
+    const reverseMapping = {};
+
+    Object.keys(mapping).forEach((item) => {
+      let key = mapping[item];
+      reverseMapping[key] = item;
+    });
+
+    return reverseMapping;
+  }
+
+  checkError = (encoding) => {
+    return encoding !== "utf8";
   }
 };
