@@ -65,7 +65,7 @@ describe('Rot8 transform:', () => {
   test('_transform function must pass without error', () => {
     let rot8 = new Rot8({decoding: false});
     const mockTransform = jest.spyOn(rot8, '_transform');
-    rot8._transform('', 'utf8', () => {});
+    rot8._transform('This is secret. Message about "_" symbol!', 'utf8', () => {});
 
     expect(mockTransform).toHaveBeenCalled();
   });
