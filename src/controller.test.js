@@ -51,4 +51,18 @@ describe("Controller run function:", () => {
     expect(mockGetValue).toHaveBeenCalled();
     expect(mockGetConfig).toHaveBeenCalled();
   });
+
+  test("must pass with long flags", () => {
+    process.argv[process.argv.indexOf('-c')] = '--config';
+    process.argv[process.argv.indexOf('-i')] = '--input';
+    process.argv[process.argv.indexOf('-o')] = '--output';
+
+    controller.run();
+
+    expect(validator.checkArgs).toHaveBeenCalled();
+    expect(validator.checkConfig).toHaveBeenCalled();
+    expect(validator.checkFile).toHaveBeenCalled();
+    expect(mockGetValue).toHaveBeenCalled();
+    expect(mockGetConfig).toHaveBeenCalled();
+  });
 });
