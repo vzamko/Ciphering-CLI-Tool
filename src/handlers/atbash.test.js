@@ -32,7 +32,7 @@ describe('Atbash transform:', () => {
   test('_transform function must pass without error', () => {
     let atbash = new Atbash({decoding: false});
     const mockTransform = jest.spyOn(atbash, '_transform');
-    atbash._transform('', 'utf8', () => {});
+    atbash._transform('This is secret. Message about "_" symbol!', 'utf8', () => {});
 
     expect(mockTransform).toHaveBeenCalled();
   });
