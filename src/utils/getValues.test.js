@@ -32,4 +32,8 @@ describe('getValue function', () => {
     expect(getValues.getValue('-o')).toBe(settings.PROJECT_DIR + "/output.txt");
     expect(getValues.getValue('--output')).toBe(settings.PROJECT_DIR + "/output.txt");
   });
+
+  test('must return null', () => {
+    expect(getValues.getValue('I_love_potato')).toBeNull();
+  });
 });
