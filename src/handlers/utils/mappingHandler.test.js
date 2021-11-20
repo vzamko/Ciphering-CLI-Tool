@@ -1,4 +1,4 @@
-const mappingHandler = require('./mappingHandler');
+const mappingHandler = require("./mappingHandler");
 
 const mapping = {
   a: "i",
@@ -29,12 +29,16 @@ const mapping = {
   z: "h",
 };
 
-describe('MappingHandler run function:', () => {
-  test('must return correct string without line break', () => {
-    expect(mappingHandler.run('I love potato', mapping)).toEqual('Q twdm xwbibw' + "\n");
+describe("MappingHandler run function:", () => {
+  test("must return correct string without line break", () => {
+    expect(mappingHandler.run("I love potato", mapping)).toEqual(
+      "Q twdm xwbibw" + "\n"
+    );
   });
 
-  test('must return correct string with line break', () => {
-    expect(mappingHandler.run('I love potato' + "\n", mapping)).toEqual('Q twdm xwbibw' + "\n");
+  test("must return correct string with line break", () => {
+    expect(mappingHandler.run("I love potato" + "\n", mapping)).toEqual(
+      "Q twdm xwbibw" + "\n"
+    );
   });
 });

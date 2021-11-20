@@ -53,9 +53,9 @@ describe("Controller run function:", () => {
   });
 
   test("must pass with long flags", () => {
-    process.argv[process.argv.indexOf('-c')] = '--config';
-    process.argv[process.argv.indexOf('-i')] = '--input';
-    process.argv[process.argv.indexOf('-o')] = '--output';
+    process.argv[process.argv.indexOf("-c")] = "--config";
+    process.argv[process.argv.indexOf("-i")] = "--input";
+    process.argv[process.argv.indexOf("-o")] = "--output";
 
     controller.run();
 

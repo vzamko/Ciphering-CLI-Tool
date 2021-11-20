@@ -19,31 +19,35 @@ beforeEach(() => {
   );
 });
 
-describe('Atbash transform:', () => {
-  test('must transform text', () => {
+describe("Atbash transform:", () => {
+  test("must transform text", () => {
     let atbash = new Atbash();
-    atbash = mockReadable.pipe(atbash).setEncoding('utf8');
+    atbash = mockReadable.pipe(atbash).setEncoding("utf8");
 
-    atbash.on('data', (chunk) => {
+    atbash.on("data", (chunk) => {
       expect(chunk).toBe('Gsrh rh hvxivg. Nvhhztv zylfg "_" hbnylo!\n');
     });
   });
 
-  test('_transform function must pass without error', () => {
-    let atbash = new Atbash({decoding: false});
-    const mockTransform = jest.spyOn(atbash, '_transform');
-    atbash._transform('This is secret. Message about "_" symbol!', 'utf8', () => {});
+  test("_transform function must pass without error", () => {
+    let atbash = new Atbash({ decoding: false });
+    const mockTransform = jest.spyOn(atbash, "_transform");
+    atbash._transform(
+      'This is secret. Message about "_" symbol!',
+      "utf8",
+      () => {}
+    );
 
     expect(mockTransform).toHaveBeenCalled();
   });
 
-  test('must call Error', () => {
-    let mockReadableWithoutUtf8 = fs.createReadStream('input.txt');
+  test("must call Error", () => {
+    let mockReadableWithoutUtf8 = fs.createReadStream("input.txt");
     let atbash = new Atbash();
     atbash = mockReadableWithoutUtf8.pipe(atbash);
 
-    atbash.on('error', (e) => {
-      expect(e.message).toBe('Source must be UTF-8.');
+    atbash.on("error", (e) => {
+      expect(e.message).toBe("Source must be UTF-8.");
     });
   });
 });

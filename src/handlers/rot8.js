@@ -65,9 +65,9 @@ module.exports = class Rot8 extends stream.Transform {
     });
 
     return reverseMapping;
-  }
+  };
 
   checkError = (encoding) => {
     return encoding !== "utf8";
-  }
+  };
 };
