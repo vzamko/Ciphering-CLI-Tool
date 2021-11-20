@@ -65,4 +65,17 @@ describe("Controller run function:", () => {
     expect(mockGetValue).toHaveBeenCalled();
     expect(mockGetConfig).toHaveBeenCalled();
   });
+
+  test("must pass without output flags", () => {
+    process.argv.pop();
+    process.argv.pop();
+
+    controller.run();
+
+    expect(validator.checkArgs).toHaveBeenCalled();
+    expect(validator.checkConfig).toHaveBeenCalled();
+    expect(validator.checkFile).toHaveBeenCalled();
+    expect(mockGetValue).toHaveBeenCalled();
+    expect(mockGetConfig).toHaveBeenCalled();
+  });
 });
